@@ -46,9 +46,7 @@
   - [react-native-indicators](https://github.com/n4kz/react-native-indicators)
   - [react-native-fast-toast](https://github.com/arnnis/react-native-fast-toast)
   - [sharingan-rn-modal-dropdown](https://github.com/srk-sharingan/sharingan-rn-modal-dropdown)
-  - 
-  - [react-native-scroll-bottom-sheet](https://github.com/rgommezz/react-native-scroll-bottom-sheet)
-  - [react-native-loading-spinner-overlay](https://github.com/joinspontaneous/react-native-loading-spinner-overlay)
+  - [react-native-admob](https://github.com/sbugert/react-native-admob)
 ## License
 Licensed under the [MIT License](LICENSE)
 
