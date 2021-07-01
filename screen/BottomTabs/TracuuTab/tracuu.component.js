@@ -14,6 +14,7 @@ import {
   Divider,
   ButtonGroup,
 } from "@ui-kitten/components";
+import { AdMobBanner } from "expo-ads-admob";
 import Swiper from "react-native-swiper";
 import * as EvaIcon from "../../../src/icon/EvaIcon";
 import { styles } from "../../../style/styles";
@@ -324,6 +325,12 @@ export const TracuuScreen = ({ navigation }) => {
           </Layout>
         </Swiper>
       </Layout>
+      <AdMobBanner
+        bannerSize="smartBannerPortrait"
+        adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+        servePersonalizedAds // true or false
+        onDidFailToReceiveAdWithError={this.bannerError}
+      />
     </SafeAreaView>
   );
 };

@@ -9,6 +9,16 @@
       "image": "./src/assets/Intro.png",
       "resizeMode": "cover"
     },
+    "android": {
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1438120880612757~7200514501"
+      }
+    },
+    "ios": {
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1438120880612757~7200514501"
+      }
+    },
     "assetBundlePatterns": [
       "**/*"
     ]

@@ -7,8 +7,14 @@ import {
   TopNavigation,
   Icon,
 } from "@ui-kitten/components";
-import Spinner from "react-native-loading-spinner-overlay";
 import { styles } from "../../../style/styles";
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+  setTestDeviceIDAsync,
+} from "expo-ads-admob";
 import { db } from "../../../database/userData";
 
 export const ThithuScreen = ({ navigation }) => {
@@ -17,10 +23,19 @@ export const ThithuScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+      }}
+    >
       <TopNavigation title="Thi thử" alignment="center" />
       <Divider />
-      <Layout style={{ flex: 1, alignItems: "center" }}>
+      <Layout
+        style={{
+          flex: 1,
+          alignItems: "center",
+        }}
+      >
         <TouchableOpacity
           onPress={() => {
             db.transaction(
@@ -52,6 +67,13 @@ export const ThithuScreen = ({ navigation }) => {
           />
           <Text style={styles.TextStyle}>Tạo đề ngẫu nhiên</Text>
         </TouchableOpacity>
+        <AdMobBanner
+          bannerSize="mediumRectangle"
+          adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+          servePersonalizedAds // true or false
+          onDidFailToReceiveAdWithError={this.bannerError}
+          style={{ marginTop: "4%" }}
+        />
       </Layout>
     </SafeAreaView>
   );
