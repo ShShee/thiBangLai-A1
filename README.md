@@ -48,6 +48,14 @@
   - [react-native-fast-toast](https://github.com/arnnis/react-native-fast-toast)
   - [sharingan-rn-modal-dropdown](https://github.com/srk-sharingan/sharingan-rn-modal-dropdown)
   - [react-native-admob](https://github.com/sbugert/react-native-admob)
+## Backend
+Source code: [ThiGPLX-Backend](https://github.com/ShShee/ThiGPLX-Backend)
+## Database
+<img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/database.PNG width=927 height=258 />
+
+## Sơ đồ kiến trúc
+<img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/Untitled%20Diagram.png width=608 height=287 />
+
 ## License
 Licensed under the [MIT License](LICENSE)
 
