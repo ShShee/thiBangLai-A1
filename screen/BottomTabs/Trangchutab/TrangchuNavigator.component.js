@@ -14,7 +14,7 @@ export const TrangchuNavigator = () => (
         headerShown: false,
       }}
     />
-    <Screen name="Chọn loại GPLX" component={BanglaiScreen} />
+    <Screen name="Cài đặt" component={BanglaiScreen} />
     <Screen name="Câu hỏi ôn tập" component={OntapScreen} />
   </Navigator>
 );

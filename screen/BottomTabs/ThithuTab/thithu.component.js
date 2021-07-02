@@ -21,7 +21,6 @@ export const ThithuScreen = ({ navigation }) => {
   const navigateScreen = (ScreenName) => {
     navigation.navigate(ScreenName);
   };
-
   return (
     <SafeAreaView
       style={{

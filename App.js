@@ -18,6 +18,13 @@ import { ToastProvider } from "react-native-fast-toast";
 
 import { ModalPortal } from "react-native-modals";
 
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+} from "expo-ads-admob";
+
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
 
@@ -28,6 +35,11 @@ export default function App() {
         await SplashScreen.preventAutoHideAsync();
         // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync(Entypo.font);
+
+        await AdMobInterstitial.setAdUnitID(
+          "ca-app-pub-3940256099942544/8691691433"
+        );
+        await AdMobInterstitial.requestAdAsync();
         // Artificially delay for two seconds to simulate a slow loading
         // experience. Please remove this if you copy and paste the code!
         await new Promise((resolve) => setTimeout(resolve, 1000));

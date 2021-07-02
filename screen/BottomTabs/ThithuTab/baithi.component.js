@@ -5,7 +5,8 @@ import React, {
   useLayoutEffect,
   useEffect,
 } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { Text, View, TouchableOpacity, Image } from "react-native";
+import { styles } from "../../../style/styles";
 import TaoBaithi from "../../../function/taoBaithi.component";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import { Dropdown } from "sharingan-rn-modal-dropdown";
@@ -17,6 +18,12 @@ import Modal, {
   ModalButton,
   ScaleAnimation,
 } from "react-native-modals";
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+} from "expo-ads-admob";
 
 const timerProps = {
   isPlaying: true,
@@ -32,29 +39,26 @@ const children = ({ remainingTime }) => {
 
 const url = "https://thi-gplx.herokuapp.com/A1";
 
-const QuestionList = (props) => {
-  return (
-    <View>
-      <TouchableOpacity style={styles.item}>
-        <Text> Câu {parseInt(props.order) + 1}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-memo(QuestionList);
+//AdMobInterstitial.requestAd().then(() => AdMobInterstitial.showAd());
 
 export const BaithiScreen = ({ navigation }) => {
   const [diem, setDiem] = useState({ total: 0, state: false });
   const [nopBai, setNopbai] = useState(false);
   const [arrayAns, setArrayAns] = useState(Array(30).fill("false"));
+  const [ready, setReady] = useState(false);
   const [IsLiet, setLiet] = useState(true);
   const trigger = useRef(null);
   const [timeOut, setTimeOut] = useState(false);
   const [modal, setModal] = useState(false);
   const [questionList, setQuestionList] = useState([]);
 
+  //Load du lieu tu server
   useEffect(() => {
+    AdMobInterstitial.showAdAsync();
+    AdMobInterstitial.requestAdAsync();
+    AdMobInterstitial.addEventListener("interstitialDidClose", () => {
+      setReady(true);
+    });
     fetch(url + "/TaoDe")
       .then((response) => {
         return response.json();
@@ -63,6 +67,8 @@ export const BaithiScreen = ({ navigation }) => {
         setQuestionList(response);
       });
   }, []);
+
+  //Ngan quay ve khi chua load xong
   useEffect(
     () =>
       navigation.addListener("beforeRemove", (e) => {
@@ -72,10 +78,13 @@ export const BaithiScreen = ({ navigation }) => {
         }
 
         // Prevent default behavior of leaving the screen
+        AdMobInterstitial.requestAdAsync();
         e.preventDefault();
       }),
     [navigation, questionList]
   );
+
+  //Nop bai
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -94,6 +103,7 @@ export const BaithiScreen = ({ navigation }) => {
     });
   }, [navigation, nopBai]);
 
+  //Tinh diem sau khi nopbai
   const getData = (part) => {
     db.transaction(
       (tx) => {
@@ -122,10 +132,14 @@ export const BaithiScreen = ({ navigation }) => {
       (e) => console.log("Error: " + e)
     );
   };
+
+  //Scroll select
   const onChangeSS = (value) => {
     //setValueSS(value);
     trigger.current.scrollTo(parseInt(value) - 1);
   };
+
+  //Set select icon
   const setImage = (index) => {
     if (nopBai == true) {
       if (arrayAns[index] == "false") {
@@ -141,6 +155,8 @@ export const BaithiScreen = ({ navigation }) => {
       }
     }
   };
+
+  //Hien thi dau hay rot
   const setColor = () => {
     if (nopBai == true) {
       if (diem.state == false) return "#ffff1a";
@@ -149,6 +165,8 @@ export const BaithiScreen = ({ navigation }) => {
       } else return "#00ff00";
     } else return "#8c1aff";
   };
+
+  //Tao data select
   const data = Array(questionList[0] != null ? questionList.length - 1 : 0)
     .fill(null)
     .map((value, index) => ({
@@ -158,24 +176,11 @@ export const BaithiScreen = ({ navigation }) => {
         uri: setImage(index),
       },
     }));
+
   return (
-    <View style={styles.container}>
-      {questionList[0] != null && (
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            marginLeft: "3%",
-            marginRight: "2%",
-            borderWidth: 6,
-            borderColor: "#ccccff",
-            height: 72,
-            borderRadius: 100,
-            borderBottomLeftRadius: 0,
-            backgroundColor: "#ffffff",
-          }}
-        >
+    <View style={{ flex: 1 }}>
+      {questionList[0] != null && ready && (
+        <View style={styles.viewSelectTime}>
           <Dropdown
             label="Chọn câu hỏi"
             data={data}
@@ -284,33 +289,3 @@ export const BaithiScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainerStyle: {
-    padding: 5,
-    backgroundColor: "#F3F4F9",
-  },
-  header: {
-    alignItems: "center",
-    backgroundColor: "white",
-    paddingVertical: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  panelHandle: {
-    width: 40,
-    height: 2,
-    backgroundColor: "rgba(0,0,0,0.3)",
-    borderRadius: 4,
-  },
-  item: {
-    padding: 15,
-    justifyContent: "center",
-    backgroundColor: "white",
-    alignItems: "center",
-    marginVertical: 5,
-  },
-});

@@ -17,7 +17,9 @@ export const BackIcon = (props) => <Icon {...props} name="arrow-back" />;
 
 export const BookIcon = (props) => <Icon name="book" {...props} />;
 
-export const ListIcon = (props) => <Icon name="list" {...props} />;
+export const SettingIcon = (props) => (
+  <Icon name="settings-2-outline" {...props} />
+);
 
 export const ArrowBackIcon = (props) => (
   <Icon name="arrow-ios-back" {...props} />

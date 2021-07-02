@@ -83,8 +83,8 @@ export const TrangchuScreen = ({ navigation }) => {
 
   const renderRightActions = () => (
     <TopNavigationAction
-      icon={EvaIcon.ListIcon}
-      onPress={() => navigateScreen("Chọn loại GPLX")}
+      icon={EvaIcon.SettingIcon}
+      onPress={() => navigateScreen("Cài đặt")}
     />
   );
   return (

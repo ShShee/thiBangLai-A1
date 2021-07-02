@@ -25,7 +25,7 @@ export const BanglaiScreen = ({ navigation }) => {
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <Layout style={{ flex: 1, alignItems: "center" }}>
         <Text category="h5" style={{ marginTop: "1%" }}>
-          Mô tô
+          Hạng thi
         </Text>
         <TouchableOpacity
           onPress={() => dispatch(thaydoiBanglai("A1"))}
@@ -42,7 +42,7 @@ export const BanglaiScreen = ({ navigation }) => {
           </Layout>
         </TouchableOpacity>
         <Text category="h5" style={{ marginTop: "1%" }}>
-          Cài đặt
+          Dữ liệu
         </Text>
       </Layout>
       <TouchableOpacity

@@ -14,6 +14,7 @@ import { PulseIndicator } from "react-native-indicators";
 import { currentPart } from "../../../redux/ontapSlice";
 import { useSelector } from "react-redux";
 import { findMaxLength } from "../../../function/utilityFunc";
+import { AdMobInterstitial } from "expo-ads-admob";
 
 const url = "https://thi-gplx.herokuapp.com/A1";
 
@@ -21,6 +22,7 @@ export const OntapScreen = ({ navigation }) => {
   const SelectedPart = useSelector(currentPart);
   const [questionList, setQuestionList] = useState([]);
   const trigger = useRef(null);
+  const [ready, setReady] = useState(false);
   const [page, setPage] = React.useState(0);
 
   const scrollList = (value) => {
@@ -30,6 +32,11 @@ export const OntapScreen = ({ navigation }) => {
     }
   };
   useEffect(() => {
+    AdMobInterstitial.showAdAsync();
+    AdMobInterstitial.requestAdAsync();
+    AdMobInterstitial.addEventListener("interstitialDidClose", () => {
+      setReady(true);
+    });
     fetch(url + "/" + SelectedPart)
       .then((response) => {
         return response.json();
@@ -51,7 +58,7 @@ export const OntapScreen = ({ navigation }) => {
       }),
     [navigation, questionList]
   );
-  return questionList[0] == null ? (
+  return questionList[0] == null && ready == false ? (
     <PulseIndicator color="#8c1aff" size={200} />
   ) : (
     <FlatList
