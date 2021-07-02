@@ -8,7 +8,8 @@
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/onTap.png width=601 height=580 />
 - Hiển thị thông tin loại bằng lái và tạo lại dữ liệu ôn tập
 ### Thi thử 
-- Khởi tạo đề thi ngẫu nhiên 
+- Khởi tạo đề thi ngẫu nhiên
+  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/thiThu.jpg width=300 height=580 />
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/baithi2.png width=601 height=580 />
 - Chấm bài làm và đưa ra giải thích
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/baithi4.png width=601 height=580 />
