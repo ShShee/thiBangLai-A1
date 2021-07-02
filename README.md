@@ -3,10 +3,11 @@
 ## Chức năng ứng dụng
 ### Trang chủ
 - Danh sách ôn tập từ toàn bộ đến phân chia theo từng chủ đề
-  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/trangChu.png width=300 height=580 />
+  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/trangChu.jpg width=300 height=580 />
 - Giao diện ôn tập nhận định đúng sai và có giải thích
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/onTap.png width=601 height=580 />
 - Hiển thị thông tin loại bằng lái và tạo lại dữ liệu ôn tập
+  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/caiDat.jpg width=300 height=580 />
 ### Thi thử 
 - Khởi tạo đề thi ngẫu nhiên
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/thiThu.jpg width=300 height=580 />
@@ -15,7 +16,7 @@
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/baithi4.png width=601 height=580 />
 ### Tra cứu
 - Cung cấp các mẹo thi bổ ích
-  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/traCuu.png width=300 height=580 />
+  - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/traCuu.jpg width=300 height=580 />
 - Các thông tin biển báo cơ bản
   - <img src=https://github.com/ShShee/thiBangLai-A1/blob/main/giaoDienThucHien/bienBao.png width=601 height=580 />
 - Thông tin về thực hành sa hình
