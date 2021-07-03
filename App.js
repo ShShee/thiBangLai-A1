@@ -37,7 +37,7 @@ export default function App() {
         await Font.loadAsync(Entypo.font);
 
         await AdMobInterstitial.setAdUnitID(
-          "ca-app-pub-3940256099942544/8691691433"
+          "ca-app-pub-1438120880612757/7799280309"
         );
         await AdMobInterstitial.requestAdAsync();
         // Artificially delay for two seconds to simulate a slow loading

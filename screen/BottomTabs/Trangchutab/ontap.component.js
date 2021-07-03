@@ -58,7 +58,7 @@ export const OntapScreen = ({ navigation }) => {
       }),
     [navigation, questionList]
   );
-  return questionList[0] == null && ready == false ? (
+  return questionList[0] == null || ready == false ? (
     <PulseIndicator color="#8c1aff" size={200} />
   ) : (
     <FlatList
