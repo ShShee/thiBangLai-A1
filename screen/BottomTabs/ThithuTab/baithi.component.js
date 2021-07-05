@@ -51,6 +51,7 @@ export const BaithiScreen = ({ navigation }) => {
   const [timeOut, setTimeOut] = useState(false);
   const [modal, setModal] = useState(false);
   const [questionList, setQuestionList] = useState([]);
+  const [valueSS, setValueSS] = useState("1");
 
   //Load du lieu tu server
   useEffect(() => {
@@ -187,6 +188,7 @@ export const BaithiScreen = ({ navigation }) => {
             enableAvatar
             disableSort
             onChange={onChangeSS}
+            value={valueSS}
           />
           <CountdownCircleTimer
             {...timerProps}
@@ -227,6 +229,7 @@ export const BaithiScreen = ({ navigation }) => {
         nopBai={nopBai}
         baiThi={true}
         state={diem.state}
+        setValueSS={setValueSS}
       />
       <Modal
         width={0.9}

@@ -12,12 +12,14 @@
     "android": {
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-1438120880612757~7200514501"
-      }
+      },
+      "package": "com.shshee.thiGPLX"
     },
     "ios": {
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-1438120880612757~7200514501"
-      }
+      },
+      "bundleIdentifier": "com.shshee.thiGPLX"
     },
     "assetBundlePatterns": [
       "**/*"

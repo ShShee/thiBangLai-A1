@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { SafeAreaView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar, LogBox } from "react-native";
 
 import * as eva from "@eva-design/eva";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
@@ -24,6 +24,9 @@ import {
   PublisherBanner,
   AdMobRewarded,
 } from "expo-ads-admob";
+
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);

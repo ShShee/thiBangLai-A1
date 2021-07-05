@@ -31,6 +31,7 @@ export default function TaoBaithi(props) {
         ref={props.trigger}
         showsPagination={false}
         scrollEnabled={true}
+        onIndexChanged={(index) => props.setValueSS((index + 1).toString())}
       >
         {props.questionList.map((currentQuesiton, index) => {
           if (index != 0) {
